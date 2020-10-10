@@ -24,9 +24,11 @@
 
 ### lib\Compiler.js --- 执行编译compiler.run(callback)
 ```
+  run阶段：
   this.hooks.beforeRun.callAsync
   this.hooks.run.callAsync
 
+  compile阶段：
   this.hooks.beforeCompile.callAsync
   this.hooks.compile.call
 
@@ -34,6 +36,7 @@
     this.hooks.thisCompilation.call(compilation, params)
     this.hooks.compilation.call(compilation, params)
 
+  make阶段（执行编译）：
   this.hooks.make.callAsync(compilation, function)
   this.hooks.finishMake.callAsync(compilation, function)
 
@@ -42,6 +45,7 @@
 
   this.hooks.afterCompile.callAsync(compilation, function)
 
+  onCompiled阶段：
   if (this.hooks.shouldEmit.call(compilation) === false) {
     this.hooks.done.callAsync
     this.hooks.afterDone.call
